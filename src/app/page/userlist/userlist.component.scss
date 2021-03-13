@@ -1,0 +1,8 @@
+.userTableColumn {
+  user-select: none;
+}
+
+.userTableColumn th:hover {
+  background-color: #eee;
+  cursor: pointer;
+}

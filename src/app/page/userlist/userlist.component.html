@@ -4,7 +4,7 @@
 <div class="row">
   <div class="col-4 offset-8 mt-0 mb-3">
     <input [formControl]="phraseControl" type="text" class="form-control"
-      placeholder="find user">
+       [placeholder]="searchText">
   </div>
 </div>
     <div class="col-12 mb-3 mx-0 px-0">
@@ -19,22 +19,23 @@
 <div class="row">
   <div class="col-12">
     <table class="table table-striped">
-      <thead>
+      <thead class="userTableColumn">
         <tr>
-          <th>#</th>
-          <th>Fname</th>
-          <th>Lname</th>
-          <th>Gender</th>
-          <th>Email</th>
-          <th>IP-address</th>
-          <th>Position</th>
-          <th>Rights</th>
+          <th (click)="onColumnSelect('id')">#</th>
+          <th (click)="onColumnSelect('first_name')">Fname</th>
+          <th (click)="onColumnSelect('last_name')">Lname</th>
+          <th (click)="onColumnSelect('gender')">Gender</th>
+          <th (click)="onColumnSelect('email')">Email</th>
+          <th (click)="onColumnSelect('ip_address')">IP-address</th>
+          <th (click)="onColumnSelect('position')">Position</th>
+          <th (click)="onColumnSelect('rights')">Rights</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <!-- <tr *ngFor="let user of userList$ | async | filter:phrase"> -->
-        <tr *ngFor="let user of userList$ | async">
+        <!-- <tr *ngFor="let user of userList$ | async"> -->
+        <tr *ngFor="let user of userList$ | async | filter:phrase:columnKey | sorter:columnKey:order">
           <td>{{ user.id }}</td>
           <td>{{ user.first_name }}</td>
           <td>{{ user.last_name }}</td>

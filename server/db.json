@@ -1,16 +1,6 @@
 {
   "users": [
     {
-      "id": 2,
-      "first_name": "Malachi",
-      "last_name": "Bickley",
-      "gender": "Bigender",
-      "email": "mbickley1@booking.com",
-      "ip_address": "54.86.235.21",
-      "position": "user",
-      "rights": "RC"
-    },
-    {
       "id": 3,
       "first_name": "Gonzalo",
       "last_name": "Hindmore",
