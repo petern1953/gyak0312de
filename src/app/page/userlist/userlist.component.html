@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-4 offset-8 mt-3 mb-3">
+    <input [formControl]="phraseControl" type="text" class="form-control"
+      placeholder="find user">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Fname</th>
+          <th>Lname</th>
+          <th>Gender</th>
+          <th>Email</th>
+          <th>IP-address</th>
+          <th>Position</th>
+          <th>Rights</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr *ngFor="let user of userList$ | async | filter:phrase"> -->
+        <tr *ngFor="let user of userList$ | async">
+          <td>{{ user.id }}</td>
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.gender }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.ipAddress }}</td>
+          <td>{{ user.position }}</td>
+          <td>{{ user.rights }}</td>
+          <td>
+            <div class="btn-group">
+              <button [routerLink]="[user.id]" class="btn btn-info">
+                <i class="fa fa-edit"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
