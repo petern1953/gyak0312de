@@ -8,13 +8,17 @@ import { AppComponent } from './app.component';
 import { UserlistComponent } from './page/userlist/userlist.component';
 import { AdminComponent } from './page/admin/admin.component';
 import { NavigationComponent } from './common/navigation/navigation.component';
+import { FilterPipe } from './pipe/filter.pipe';
+import { SorterPipe } from './pipe/sorter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserlistComponent,
     AdminComponent,
-    NavigationComponent],
+    NavigationComponent,
+    FilterPipe,
+    SorterPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,
