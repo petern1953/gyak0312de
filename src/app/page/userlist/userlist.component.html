@@ -6,7 +6,7 @@
 </div>
 
 <div class="row">
-  <div class="col-12">
+  <div class="col-8 offset-2">
     <table class="table table-striped">
       <thead>
         <tr>
@@ -25,11 +25,11 @@
         <!-- <tr *ngFor="let user of userList$ | async | filter:phrase"> -->
         <tr *ngFor="let user of userList$ | async">
           <td>{{ user.id }}</td>
-          <td>{{ user.firstName }}</td>
-          <td>{{ user.lastName }}</td>
+          <td>{{ user.first_name }}</td>
+          <td>{{ user.last_name }}</td>
           <td>{{ user.gender }}</td>
           <td>{{ user.email }}</td>
-          <td>{{ user.ipAddress }}</td>
+          <td>{{ user.ip_address }}</td>
           <td>{{ user.position }}</td>
           <td>{{ user.rights }}</td>
           <td>
