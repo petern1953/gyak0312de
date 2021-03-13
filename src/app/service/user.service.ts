@@ -12,5 +12,37 @@ import { User } from '../model/user';
 export class UserService {
   apiUrl: string = 'http://localhost:3000/users';
 
-  constructor() {}
+  list$: BehaviorSubject<User[]> = new BehaviorSubject<User[]>([]);
+
+  constructor(private http: HttpClient) {}
+
+  getAll(): void {
+    this.list$.next([]);
+    this.http
+      .get<User[]>(this.apiUrl)
+      .subscribe(users => this.list$.next(users));
+  }
+
+  get(id: number | string): Observable<User> {
+    id = parseInt('' + id, 10);
+    return this.http.get<User>(`${this.apiUrl}/${id}`);
+  }
+
+  create(user: User): void {
+    this.http
+      .post<User>(this.apiUrl, user)
+      .subscribe(() => this.getAll());
+  }
+
+  update(user: User): Observable<User> {
+    return this.http
+      .patch<User>(`${this.apiUrl}/${user.id}`, user)
+      .pipe(tap(() => this.getAll()));
+  }
+
+  remove(user: User): void {
+    this.http
+      .delete<User>(`${this.apiUrl}/${user.id}`)
+      .subscribe(() => this.getAll());
+  }
 }
