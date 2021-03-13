@@ -12,7 +12,7 @@
           required
         />
         <div [hidden]="userForm.controls.fname?.valid" class="error-message">
-          A vezetéknév nagybetűvel kezdődik, és minimum 3 karakter hosszú!
+          A vezetéknév kötelezően nagybetűvel kezdődik, és minimum 3 karakter hosszú!
         </div>
       </div>
       <div class="form-group">
@@ -26,7 +26,7 @@
           pattern="^[A-Z][a-z]{2,}$"
         />
         <div [hidden]="userForm.controls.lname?.valid" class="error-message">
-          A keresztnév nagybetűvel kezdődik, és minimum 3 karakter hosszú!
+          A keresztnév kötelezően nagybetűvel kezdődik, és minimum 3 karakter hosszú!
         </div>
       </div>
       <div class="form-group">
@@ -40,21 +40,21 @@
           pattern="^[A-Z][a-z]{3,}$"
         />
         <div [hidden]="userForm.controls.gender?.valid" class="error-message">
-          A gender nagybetűvel kezdődik, és minimum 3 karakter hosszú!
+          A gender kötelezően nagybetűvel kezdődik, és minimum 4 karakter hosszú!
         </div>
       </div>
       <div class="form-group">
-        <label for="email">Gender</label>
+        <label for="email">E-mail</label>
         <input
-          [(ngModel)]="user.gender"
+          [(ngModel)]="user.email"
           name="email"
           type="text"
           class="form-control"
           required
-          pattern="^[A-Z][a-z]{3,}$"
+          pattern="^[a-z]+@[a-z]+\.[a-z]{2,3}$"
         />
         <div [hidden]="userForm.controls.email?.valid" class="error-message">
-          A gender nagybetűvel kezdődik, és minimum 3 karakter hosszú!
+          Az email-cím kötelezően xxx@xxx.xxx alakú!
         </div>
       </div>
                         <!--
