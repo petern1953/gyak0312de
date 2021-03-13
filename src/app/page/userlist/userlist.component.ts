@@ -23,6 +23,10 @@ export class UserlistComponent implements OnInit {
     this.userService.getAll();
     this.phraseControl.valueChanges
       .pipe(debounceTime(800))
-      .subscribe(newValue => (this.phrase = newValue));
+      .subscribe((newValue) => (this.phrase = newValue));
+  }
+
+  onDelete(id: number): void {
+    this.userService.remove(id);
   }
 }

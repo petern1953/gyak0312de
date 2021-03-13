@@ -40,9 +40,9 @@ export class UserService {
       .pipe(tap(() => this.getAll()));
   }
 
-  remove(user: User): void {
+  remove(userId: number): void {
     this.http
-      .delete<User>(`${this.apiUrl}/${user.id}`)
+      .delete<User>(`${this.apiUrl}/${userId}`)
       .subscribe(() => this.getAll());
   }
 }

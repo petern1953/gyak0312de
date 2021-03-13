@@ -1,9 +1,20 @@
+
+<div>
+  <h3 class="mt-3 mb-0">Userlist page</h3>
 <div class="row">
-  <div class="col-4 offset-8 mt-3 mb-3">
+  <div class="col-4 offset-8 mt-0 mb-3">
     <input [formControl]="phraseControl" type="text" class="form-control"
       placeholder="find user">
   </div>
 </div>
+    <div class="col-12 mb-3 mx-0 px-0">
+      <button
+        [routerLink]="['user/0']"
+        class="btn btn-success btn-block btn-lg"
+      >
+        <i class="fa fa-pencil"></i> Add new user
+      </button>
+    </div>
 
 <div class="row">
   <div class="col-12">
@@ -34,13 +45,20 @@
           <td>{{ user.rights }}</td>
           <td>
             <div class="btn-group">
-              <button [routerLink]="[user.id]" class="btn btn-info">
+              <!-- <button [routerLink]="[user.id]" class="btn btn-info">
                 <i class="fa fa-edit"></i>
-              </button>
+              </button> -->
+            <button [routerLink]="['user/' + user.id]" class="btn btn-info">
+              <i class="fa fa-pencil"></i>
+            </button>
+            <button (click)="onDelete(user.id)" class="btn btn-danger">
+              <i class="fa fa-trash"></i>
+            </button>
             </div>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
+</div>
 </div>
