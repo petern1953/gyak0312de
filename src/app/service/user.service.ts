@@ -20,7 +20,7 @@ export class UserService {
     this.list$.next([]);
     this.http
       .get<User[]>(this.apiUrl)
-      .subscribe(users => this.list$.next(users));
+      .subscribe((users) => this.list$.next(users));
   }
 
   get(id: number | string): Observable<User> {
@@ -28,10 +28,20 @@ export class UserService {
     return this.http.get<User>(`${this.apiUrl}/${id}`);
   }
 
-  create(user: User): void {
-    this.http
+  // get(id: number): Observable<User> {
+  //   return Number(id) === 0
+  //     ? of(new User())
+  //     : this.http.get<User>(`${this.apiUrl}/${Number(id)}`);
+  // }
+
+  // create(user: User): void {
+  //   this.http.post<User>(this.apiUrl, user).subscribe(() => this.getAll());
+  // }
+
+  create(user: User): Observable<User> {
+    return this.http
       .post<User>(this.apiUrl, user)
-      .subscribe(() => this.getAll());
+      .pipe(tap(() => this.getAll()));
   }
 
   update(user: User): Observable<User> {

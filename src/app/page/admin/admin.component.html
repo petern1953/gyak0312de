@@ -4,33 +4,37 @@
   </div>
 </div>
 <div class="row">
+  <!-- <div *ngIf="user$ | async as user" class="col-6 offset-3"> -->
   <div class="col-6 offset-3">
-    <form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)">
+    <!-- <form #userForm="ngForm" (ngSubmit)="onFormSubmit(userForm)"> -->
+    <form #userForm="ngForm" (ngSubmit)="onUpdate(userForm, user)">
       <div class="form-group">
-        <label for="fname">Name</label>
+        <label for="fname">First name</label>
         <input
           [(ngModel)]="user.first_name"
-          name="fname"
+          id="fname"
+          name="first_name"
           type="text"
           class="form-control"
           pattern="^[A-Z][a-z]{2,}$"
           required
         />
-        <div [hidden]="userForm.controls.fname?.valid" class="error-message">
+        <div [hidden]="userForm.controls.first_name?.valid" class="error-message">
           A vezetéknév kötelezően nagybetűvel kezdődik, és minimum 3 karakter hosszú!
         </div>
       </div>
       <div class="form-group">
-        <label>Last name</label>
+        <label for="lname">Last name</label>
         <input
           [(ngModel)]="user.last_name"
-          name="lname"
+          id="lname"
+          name="last_name"
           type="text"
           class="form-control"
           required
           pattern="^[A-Z][a-z]{2,}$"
         />
-        <div [hidden]="userForm.controls.lname?.valid" class="error-message">
+        <div [hidden]="userForm.controls.last_name?.valid" class="error-message">
           A keresztnév kötelezően nagybetűvel kezdődik, és minimum 3 karakter hosszú!
         </div>
       </div>
@@ -38,34 +42,77 @@
         <label for="gender">Gender</label>
         <input
           [(ngModel)]="user.gender"
+          id="gender"
           name="gender"
           type="text"
           class="form-control"
           required
-          pattern="^[A-Z][a-z]{3,}$"
+          pattern="^[a-z]{4,}$"
         />
         <div [hidden]="userForm.controls.gender?.valid" class="error-message">
-          A gender kötelezően nagybetűvel kezdődik, és minimum 4 karakter hosszú!
+          A gender minimum 4 karakter hosszú!
         </div>
       </div>
       <div class="form-group">
         <label for="email">E-mail</label>
         <input
           [(ngModel)]="user.email"
+          id="email"
           name="email"
           type="text"
           class="form-control"
           required
-          pattern="^[a-z]+@[a-z]+\.[a-z]{2,3}$"
+          pattern="^[a-z0-9]+@[a-z0-9]+\.[a-z]{2,3}$"
         />
         <div [hidden]="userForm.controls.email?.valid" class="error-message">
           Az email-cím kötelezően xxx@xxx.xxx alakú!
         </div>
       </div>
-                        <!--
-  ip_address: string = '';
-  position: string = 'user';
-  rights -->
+      <div class="form-group">
+        <label for="ip">IP address</label>
+        <input
+          [(ngModel)]="user.ip_address"
+          id="ip"
+          name="ip_address"
+          type="text"
+          class="form-control"
+          required
+          pattern="^((\d{1,3}.){3}\d{1,3})$"
+        />
+        <div [hidden]="userForm.controls.ip_address?.valid" class="error-message">
+          Az IP-cím kötelezően xxx.xxx.xxx.xxx alakú!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="position">Position</label>
+        <input
+          [(ngModel)]="user.position"
+          id="position"
+          name="position"
+          type="text"
+          class="form-control"
+          required
+          pattern="^(user|admin)$"
+        />
+        <div [hidden]="userForm.controls.position?.valid" class="error-message">
+          Kötelezően kitöltendő mező! user vagy admin
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="rights">Rights</label>
+        <input
+          [(ngModel)]="user.rights"
+          id="rights"
+          name="rights"
+          type="text"
+          class="form-control"
+          required
+          pattern="^([R]?[U]?[C]?[D]?)$"
+        />
+        <div [hidden]="userForm.controls.rights?.valid" class="error-message">
+          Kötelezően kitöltendő mező! R, U, C, D
+        </div>
+      </div>
 
       <button
         [disabled]="userForm.invalid || updating"

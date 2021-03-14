@@ -10,6 +10,7 @@ import { AdminComponent } from './page/admin/admin.component';
 import { NavigationComponent } from './common/navigation/navigation.component';
 import { FilterPipe } from './pipe/filter.pipe';
 import { SorterPipe } from './pipe/sorter.pipe';
+import { HomeComponent } from './home/home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SorterPipe } from './pipe/sorter.pipe';
     AdminComponent,
     NavigationComponent,
     FilterPipe,
-    SorterPipe],
+    SorterPipe,
+    HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

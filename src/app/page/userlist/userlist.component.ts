@@ -18,10 +18,17 @@ export class UserlistComponent implements OnInit {
   phrase: string = '';
 
   order: number = 1;
+  orderText: string[] = ['DOWN', 'UP'];
   columnKey: string = '';
-  searchText: string = 'Search for / filter | sort by';
+  // searchText: string = 'Search for / filter | sort by: ';
+  searchText: string = '';
+  // inputField: HTMLInputElement | null = new HTMLInputElement();
+  inputField: HTMLInputElement | null = document.querySelector('input');
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService) {
+    this.onColumnSelect('id');
+    // this.inputField = document.querySelector('input');
+  }
 
   ngOnInit(): void {
     this.userService.getAll();
@@ -40,10 +47,22 @@ export class UserlistComponent implements OnInit {
   }
 
   onColumnSelect(key: string): void {
-    this.columnKey = key;
-    this.changeOrder();
-    this.searchText = 'Search for / filter | sort by ' + `${this.columnKey}`;
-    // this.phrase = '';
+    if (this.columnKey === key) {
+      this.changeOrder();
+    } else {
+      this.columnKey = key;
+      this.order = 1;
+      this.phrase = '';
+
+      // console.log(this.phraseControl.value);
+
+      this.inputField = document.querySelector('input');
+      if (this.inputField) this.inputField.value = '';
+    }
+    // this.searchText = `Search for / filter | sort by: . . . ${
+    this.searchText = `Sort >>> ${this.orderText[(this.order + 1) / 2]}WARD <<< by >>> ${
+      this.columnKey
+      } <<< (or choose another one)`;
   }
 
   onChangePhrase(event: Event): void {

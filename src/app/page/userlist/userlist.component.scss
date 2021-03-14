@@ -6,3 +6,8 @@
   background-color: #eee;
   cursor: pointer;
 }
+
+.userTableColumn.active:before {
+  user-select: none;
+  content: '^';
+}
