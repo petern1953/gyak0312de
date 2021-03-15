@@ -271,16 +271,6 @@
       "rights": "RUC"
     },
     {
-      "id": 29,
-      "first_name": "Adamo",
-      "last_name": "Dudin",
-      "gender": "female",
-      "email": "adudins@weebly.com",
-      "ip_address": "195.147.13.119",
-      "position": "user",
-      "rights": "RUCD"
-    },
-    {
       "id": 30,
       "first_name": "Merrick",
       "last_name": "Veivers",
@@ -1019,6 +1009,26 @@
       "ip_address": "1.1.1.11",
       "position": "admin",
       "rights": "RUCD"
+    },
+    {
+      "id": 105,
+      "first_name": "Ó Gy.",
+      "last_name": "Szilveszter Ila",
+      "gender": "male",
+      "email": "paa@gmail.com",
+      "ip_address": "1.1.1.1",
+      "position": "user",
+      "rights": "R"
+    },
+    {
+      "id": 106,
+      "first_name": "Ó",
+      "last_name": "Ila",
+      "gender": "female",
+      "email": "a@a.au",
+      "ip_address": "1.1.1.1",
+      "position": "user",
+      "rights": "R"
     }
   ]
 }

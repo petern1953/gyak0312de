@@ -16,12 +16,12 @@
           name="first_name"
           type="text"
           class="form-control"
-          pattern="^[A-ű]{3,}$"
+          pattern="^[A-Ű][a-ű]*( [A-ű][a-ű]*\.?)*$"
           required
           />
         <div [hidden]="userForm.controls.first_name?.valid || userForm.controls.first_name?.pristine"
         class="error-message">
-          Consists of at least 3 alphabetic chars!
+          Must contain one or more alphabetic tags started with capital letter!
         </div>
       </div>
       <div class="form-group">
@@ -33,12 +33,11 @@
           type="text"
           class="form-control"
           required
-          pattern="^[A-ű]{3,}$"
+          pattern="^[A-Ű][a-ű]{2,}( [A-ű][a-ű]{2,})*$"
           />
-          <!-- pattern="^[A-Z][a-z]{2,}$" -->
         <div [hidden]="userForm.controls.last_name?.valid || userForm.controls.last_name?.pristine"
         class="error-message">
-          Consists of at least 3 alphabetic chars!
+          Must contain one or more alphabetic tags each having capital letter leading and at least 3 chars!
         </div>
       </div>
       <div class="form-group">
