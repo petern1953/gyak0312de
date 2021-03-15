@@ -1009,6 +1009,16 @@
       "ip_address": "1.2.3.250",
       "position": "user",
       "rights": "RD"
+    },
+    {
+      "id": 104,
+      "first_name": "Kiq",
+      "last_name": "Csaba",
+      "gender": "male",
+      "email": "paa@gmail.com",
+      "ip_address": "1.1.1.11",
+      "position": "admin",
+      "rights": "RUCD"
     }
   ]
 }
