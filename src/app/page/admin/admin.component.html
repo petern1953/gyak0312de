@@ -16,7 +16,7 @@
           name="first_name"
           type="text"
           class="form-control"
-          pattern="^[A-Ű][a-ű]*( [A-ű][a-ű]*\.?)*$"
+          pattern="^[A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]*( [A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]*\.?)*$"
           required
           />
         <div [hidden]="userForm.controls.first_name?.valid || userForm.controls.first_name?.pristine"
@@ -33,7 +33,7 @@
           type="text"
           class="form-control"
           required
-          pattern="^[A-Ű][a-ű]{2,}( [A-ű][a-ű]{2,})*$"
+          pattern="^[A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]{2,}( [A-ZÁÉÍÓÖŐÚÜŰ][a-záéíóöőúüű]{2,})*$"
           />
         <div [hidden]="userForm.controls.last_name?.valid || userForm.controls.last_name?.pristine"
         class="error-message">
@@ -65,7 +65,7 @@
           type="text"
           class="form-control"
           required
-          pattern="^[a-z0-9]+(\.[a-z0-9])?@[a-z0-9]+\.[a-z]{2,3}$"
+          pattern="^[a-z0-9]+(\.[a-z0-9]+)?@[a-z0-9]+\.[a-z]{2,3}$"
         />
         <div [hidden]="userForm.controls.email?.valid || userForm.controls.email?.pristine"
         class="error-message">

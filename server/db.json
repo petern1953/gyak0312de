@@ -1029,6 +1029,16 @@
       "ip_address": "1.1.1.1",
       "position": "user",
       "rights": "R"
+    },
+    {
+      "id": 107,
+      "first_name": "Tóth Gy.",
+      "last_name": "Aass",
+      "gender": "male",
+      "email": "a.b@b.cu",
+      "ip_address": "1.1.1.1",
+      "position": "user",
+      "rights": "R"
     }
   ]
 }
